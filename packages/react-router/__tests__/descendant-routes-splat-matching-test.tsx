@@ -124,7 +124,7 @@ describe("Descendant <Routes> splat matching", () => {
                   React Fundamentals
                 </h1>
                 <p>
-                  The params are 
+                  The params are
                   {"*":"-react-fundamentals","splat":"-react-fundamentals"}
                 </p>
               </div>
@@ -150,7 +150,7 @@ describe("Descendant <Routes> splat matching", () => {
                   React Fundamentals
                 </h1>
                 <p>
-                  The params are 
+                  The params are
                   {"*":".react-fundamentals","splat":".react-fundamentals"}
                 </p>
               </div>
@@ -176,8 +176,34 @@ describe("Descendant <Routes> splat matching", () => {
                   React Fundamentals
                 </h1>
                 <p>
-                  The params are 
+                  The params are
                   {"*":"~react-fundamentals","splat":"~react-fundamentals"}
+                </p>
+              </div>
+            </div>
+          </div>
+        `);
+      });
+      it("allows `@` to appear at the beginning", () => {
+        let renderer = renderNestedSplatRoute([
+          "/courses/react/@react-fundamentals",
+        ]);
+        expect(renderer.toJSON()).toMatchInlineSnapshot(`
+          <div>
+            <h1>
+              Courses
+            </h1>
+            <div>
+              <h1>
+                React
+              </h1>
+              <div>
+                <h1>
+                  React Fundamentals
+                </h1>
+                <p>
+                  The params are
+                  {"*":"@react-fundamentals","splat":"@react-fundamentals"}
                 </p>
               </div>
             </div>
@@ -202,7 +228,7 @@ describe("Descendant <Routes> splat matching", () => {
                   React Fundamentals
                 </h1>
                 <p>
-                  The params are 
+                  The params are
                   {"*":" react-fundamentals","splat":" react-fundamentals"}
                 </p>
               </div>
